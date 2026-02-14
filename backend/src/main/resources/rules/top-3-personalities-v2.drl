@@ -1,0 +1,66 @@
+package rules;
+
+import riasec.backend.model.classes.HollandCodeTestAttempt;
+import riasec.backend.model.enums.PersonalityType;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
+import java.util.Comparator;
+
+global Integer version;
+
+rule "Calculate Top 3 Personality Types Version 2"
+salience 5
+when
+    $testAttempt: HollandCodeTestAttempt()
+    eval(version == 2)
+then
+    Map<PersonalityType, Integer> scores = new HashMap<>();
+
+    scores.put(PersonalityType.REALISTIC, $testAttempt.getScore(PersonalityType.REALISTIC));
+    scores.put(PersonalityType.INVESTIGATIVE, $testAttempt.getScore(PersonalityType.INVESTIGATIVE));
+    scores.put(PersonalityType.ARTISTIC, $testAttempt.getScore(PersonalityType.ARTISTIC));
+    scores.put(PersonalityType.SOCIAL, $testAttempt.getScore(PersonalityType.SOCIAL));
+    scores.put(PersonalityType.ENTERPRISING, $testAttempt.getScore(PersonalityType.ENTERPRISING));
+    scores.put(PersonalityType.CONVENTIONAL, $testAttempt.getScore(PersonalityType.CONVENTIONAL));
+
+    List<PersonalityType> priorityOrder = List.of(
+        PersonalityType.REALISTIC,
+        PersonalityType.ENTERPRISING,
+        PersonalityType.SOCIAL,
+        PersonalityType.INVESTIGATIVE,
+        PersonalityType.CONVENTIONAL,
+        PersonalityType.ARTISTIC
+    );
+
+     // Sort the scores in descending order, taking into account the priority order for tiebreakers
+    List<Map.Entry<PersonalityType, Integer>> sortedEntries = new ArrayList<>(scores.entrySet());
+    sortedEntries.sort((e1, e2) -> {
+        int cmp = e2.getValue().compareTo(e1.getValue());
+        if (cmp != 0) {
+            return cmp;
+        } else { //if values are equal, take the one with the higher priority
+            return Integer.compare(priorityOrder.indexOf(e1.getKey()), priorityOrder.indexOf(e2.getKey()));
+        }
+    });
+
+    // Create a map to store the top 3 scores
+    Map<PersonalityType, Integer> top3Scores = new LinkedHashMap<>();
+    for (int i = 0; i < 3 && i < sortedEntries.size(); i++) {
+        Map.Entry<PersonalityType, Integer> entry = sortedEntries.get(i);
+        top3Scores.put(entry.getKey(), entry.getValue());
+    }
+
+    // Create a list to store the result combination of personality types
+    List<String> result = new ArrayList<>();
+    result.add(top3Scores.keySet().stream()
+        .map(type -> type.toString().substring(0, 1))
+        .collect(Collectors.joining()));
+
+    // Assign the result list to the result property of the test attempt
+    $testAttempt.setResult(result);
+end

@@ -1,56 +1,95 @@
-# Holland-Code (RIASEC) Personality Test
+# 🎯 RIASEC Personality Test: Modern Expert System
 
+A state-of-the-art career orientation platform based on the **Holland Codes (RIASEC)** theory. This project implements a Decision-Engine based Expert System using **Drools** and **Spring Boot**, paired with a premium **Next.js** frontend.
 
-This repository contains the code and resources for the Holland Codes project, which is based on Dr. John Holland's theory of categorizing people and work environments into six different groups. 
+---
 
-The project aims to help individuals understand their personality types and explore career possibilities that align with their interests. It was part of a research project conducted at [Université III Toulouse - Paul Sabatier](https://www.univ-tlse3.fr) in the study program 'Compuer Science for Aerospace', where the goal was to build a Decision-Engine based Expert System with Drools.
+## 🌍 Multi-language Support (New!)
+The platform now provides a fully localized experience in three languages:
+- 🇺🇸 **English** (Native)
+- 🇷🇺 **Russian** (Localized)
+- 🇰🇿 **Kazakh** (Localized)
 
+The localization system features:
+- **Language Switcher**: A premium glassmorphism toggle with flag icons.
+- **Localized Content**: All 150+ test questions and 100+ profession titles are fully translated.
+- **Dynamic Data Loading**: The frontend automatically selects localized fields from the backend API based on user preference.
 
+---
 
+## ✨ Features
+- **Intelligent Assessment**: Take the RIASEC test to identify your personality type (Realistic, Investigative, Artistic, Social, Enterprising, Conventional).
+- **Expert Matchmaking**: Our Drools-powered engine matches your personality profile with over 100 real-world professions.
+- **Educational Content**: Learn about each Holland Code category in the comprehensive **About** page.
+- **Premium UI**: Modern design with glassmorphism effects, smooth transitions, and responsive layouts.
 
-## Overview
+---
 
-The Holland Codes project provides a comprehensive assessment tool for users to determine their Holland Code, which consists of three letters representing their primary personality types. 
-The code is determined based on their preferences and similarities to the six groups identified in Dr. Holland's theory.
+## 🛠 Tech Stack
 
+### Backend
+- **Spring Boot 3**: Core application framework.
+- **Drools 7**: Expert System rule engine for matching Holland Codes to professions.
+- **Spring Data JPA**: Persistence layer with MySQL support.
+- **Maven**: Dependency management.
 
-## Features
+### Frontend
+- **Next.js 14**: Modern React framework for high-performance UI.
+- **TypeScript**: Type-safe development.
+- **Tailwind CSS**: Utility-first styling with custom glassmorphism effects.
+- **Context API**: Global state management for language and user data.
 
-* Self-assessment: Users can take an interactive test to discover their Holland Code and understand their personality traits.
-* Career exploration: The project offers career possibilities corresponding to each Holland Code.
-* User-friendly interface: The user interface is designed to be intuitive and easy to navigate, ensuring a smooth and engaging experience.
+---
 
+## 🚀 Getting Started
 
-## Technologies Used
+### Prerequisites
+- Java 17+
+- Node.js 18+
+- MySQL Server
 
-* Frontend: React.js (v8) and Next.js (v13)
-* Backend: Spring Boot (v3) with Drools rule engine (v7)
-* Database: MySQL for storing user data and profession information
+### 1. Database Setup
+Create a MySQL database and run the following setup script or use the provided migration logic:
+```sql
+CREATE DATABASE riasec_db;
+```
+Configure your `application.properties` in `backend/src/main/resources/` with your database credentials.
 
+### 2. Run Backend
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+The API will be available at `http://localhost:9090`.
 
-## Installation
+### 3. Run Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The application will be available at `http://localhost:3000`.
 
-1. Clone the repository: git clone https://github.com/JuliaZamaitat/riasec-personality-test.git
-2. Install the required dependencies for the frontend and backend:
-    * Frontend: `cd frontend && npm install`
-   * Backend: `cd backend && mvn install`
+---
 
-3. Set up a MySQL database and update the database configuration in the backend application properties. I used this following public docker image:
+## 📐 Architecture & Infrastructure
 
-`docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=pw -d mysql:tag`
+### Expert System Rules
+The matchmaking logic is defined in `.drl` files within the `backend/src/main/resources/rules` directory. It evaluates user scores across the six personality dimensions and finds the best profession matches based on exact and similar Holland Codes.
 
+### Localization Strategy
+- **Backend Persistence**: Entities like `HollandCodeTestQuestion` and `Profession` store translations in dedicated fields (e.g., `textRu`, `textKz`).
+- **Frontend Dictionaries**: UI-specific strings are stored in JSON dictionaries under `frontend/dictionaries/`.
+- **Language Context**: A custom React Context provider manages the active language and provides a `t()` helper for nested key access.
 
-4. Start the frontend and backend servers:
-    * Frontend: `cd frontend && npm run dev`
-    * Backend: `cd backend && mvn spring-boot:run`
+---
 
+## 🔧 Critical Fixes Included
+- **Repository Optimization**: All entities and repositories updated to use `Long` IDs for consistency and performance.
+- **Caching Resolution**: Next.js data fetching utilities updated with `cache: 'no-store'` to ensure dynamic localized content is never served stale.
 
-## Contact
+---
 
-For any inquiries or questions, please reach out to the project maintainer:
-
-Name: Julia Zamaitat
-Email: j.zamaitat@gmail.com
-
-
-# holland_test_for_urban_college
+## 👥 Contributors
+- **Julia Zamaitat** (Original Maintainer)
+- **Antigravity AI** (Modernization, Localization, and Bug Fixes)

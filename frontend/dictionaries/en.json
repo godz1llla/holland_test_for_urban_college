@@ -1,0 +1,86 @@
+{
+    "tests": {
+        "available": "Available Tests",
+        "version": "Version"
+    },
+    "form": {
+        "title": "Please fill in your personal details",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "gender": "Gender",
+        "genders": {
+            "male": "Male",
+            "female": "Female",
+            "nonBinary": "Non-Binary",
+            "other": "Other"
+        },
+        "submit": "Submit",
+        "emailError": "Please enter a valid email address.",
+        "placeholders": {
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "email": "mail@mail.de"
+        }
+    },
+    "quiz": {
+        "title": "Holland Code Test",
+        "questionCount": "Question {current} of {total}",
+        "yes": "Yes",
+        "no": "No"
+    },
+    "result": {
+        "title": "Your Result",
+        "hollandCode": "Your Holland-Code",
+        "noIdea": "No idea what this means?",
+        "readMore": "You can read all about here!",
+        "description": "Based on your personal Holland Code, the following professions could be a good match for you:",
+        "exact": "Exact Professions",
+        "noExact": "No exact match",
+        "similar": "Similar Professions",
+        "back": "Back to Tests",
+        "loading": "Loading results...",
+        "error": "Error fetching data"
+    },
+    "about": {
+        "title": "What are Holland Codes?",
+        "riasec": "RIASEC",
+        "categories": {
+            "r": "Realistic",
+            "i": "Investigative",
+            "a": "Artistic",
+            "s": "Social",
+            "e": "Enterprising",
+            "c": "Conventional"
+        },
+        "description": "Holland Codes, based on Dr. John Holland's theory, categorize people and work environments into six different groups. Each letter represents one of these groups. Your Holland Code is determined by the two or three letters that best match your personality. For example, if your code is \"RES\", you most resemble the Realistic type, followed by Enterprising and then Social. The types not in your code are the ones you resemble least. <br><br>Most individuals and jobs are a combination of two or three Holland interest areas. Finding a fit between your personality and work environment leads to greater satisfaction. Here you can find further explanations of each type, along with career possibilities for each code. For a more comprehensive assessment of your Holland Code, you can take one of our",
+        "selfAssessment": "self-assessment tests",
+        "personalities": "The 6 personalities",
+        "types": {
+            "realistic": {
+                "title": "Realistic (Doers)",
+                "desc": "People who have athletic ability, prefer to work with objects, machines, tools, plants or animals, or to be outdoors."
+            },
+            "investigative": {
+                "title": "Investigative (Thinkers)",
+                "desc": "People who like to observe, learn, investigate, analyze, evaluate, or solve problems."
+            },
+            "artistic": {
+                "title": "Artistic (Creators)",
+                "desc": "People who have artistic, innovating, or intuitional abilities and like to work in unstructured situations using their imagination and creativity."
+            },
+            "social": {
+                "title": "Social (Helpers)",
+                "desc": "People who like to work with people to enlighten, inform, help, train, or cure them, or are skilled with words."
+            },
+            "enterprising": {
+                "title": "Enterprising (Persuaders)",
+                "desc": "People who like to work with people, influencing, persuading, leading or managing for organizational goals or economic gain."
+            },
+            "conventional": {
+                "title": "Conventional (Organizers)",
+                "desc": "People who like to work with data, have clerical or numerical ability, carry out tasks in detail, or follow through on others' instructions."
+            }
+        }
+    }
+}
