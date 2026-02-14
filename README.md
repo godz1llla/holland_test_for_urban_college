@@ -2,6 +2,9 @@
 
 A state-of-the-art career orientation platform based on the **Holland Codes (RIASEC)** theory. This project implements a Decision-Engine based Expert System using **Drools** and **Spring Boot**, paired with a premium **Next.js** frontend.
 
+> [!NOTE]
+> This project is a modernized and localized fork of the original [riasec-personality-test](https://github.com/JuliaZamaitat/riasec-personality-test) by Julia Zamaitat.
+
 ---
 
 ## 🌍 Multi-language Support (New!)
@@ -92,4 +95,4 @@ The matchmaking logic is defined in `.drl` files within the `backend/src/main/re
 
 ## 👥 Contributors
 - **Julia Zamaitat** (Original Maintainer)
-- **Antigravity AI** (Modernization, Localization, and Bug Fixes)
+- **Gubaidulla Orynbekov** (Modernization, Localization, and Bug Fixes)

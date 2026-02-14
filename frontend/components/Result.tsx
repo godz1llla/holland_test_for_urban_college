@@ -32,68 +32,173 @@ export default function Result({
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="max-w-2xl mx-auto">
-          <button type="button" disabled>
-            <div className="flex items-center">
-              <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="white"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="white"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-              <span className="text-white text-2xl">{t('result.loading')}</span>
-            </div>
-          </button>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
+            <svg
+              style={{ width: '24px', height: '24px', animation: 'spin 1s linear infinite' }}
+              viewBox="0 0 24 24"
+            >
+              <circle
+                style={{ opacity: 0.25 }}
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="var(--dark-grey)"
+                strokeWidth="4"
+                fill="none"
+              ></circle>
+              <path
+                style={{ opacity: 0.75 }}
+                fill="var(--primary-red)"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+            <span
+              style={{
+                fontSize: 'var(--h2-size)',
+                fontWeight: 'var(--weight-bold)',
+                color: 'var(--primary-black)',
+              }}
+            >
+              {t('result.loading')}
+            </span>
+          </div>
         </div>
       </div>
     );
   }
 
-  if (!data) return <p>{t('result.error')}</p>;
+  if (!data)
+    return (
+      <p
+        style={{
+          textAlign: 'center',
+          color: 'var(--primary-red)',
+          fontSize: 'var(--h2-size)',
+        }}
+      >
+        {t('result.error')}
+      </p>
+    );
 
   return (
-    <div className="max-w-2xl mx-auto pb-20">
-      <h1 className="text-center font-bold text-[#f8f8f8] text-6xl pt-6 mb-24">
+    <div
+      style={{
+        maxWidth: '800px',
+        margin: '0 auto',
+        paddingBottom: 'var(--spacing-xl)',
+        paddingLeft: 'var(--spacing-md)',
+        paddingRight: 'var(--spacing-md)',
+      }}
+    >
+      <h1
+        style={{
+          textAlign: 'center',
+          paddingTop: 'var(--spacing-lg)',
+          marginBottom: 'var(--spacing-xl)',
+          color: 'var(--primary-black)',
+        }}
+      >
         {t('result.title')}
       </h1>
-      <div className="flex justify-center bg-[#ffffff2e] text-[#f8f8f8] text-3xl font-bold p-10">
-        <p> {t('result.hollandCode')}: {data.hollandCode}</p>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: 'var(--card-bg)',
+          color: 'var(--primary-black)',
+          fontSize: 'var(--h2-size)',
+          fontWeight: 'var(--weight-black)',
+          padding: 'var(--spacing-xl)',
+          borderRadius: 'var(--radius-lg)',
+          boxShadow: 'var(--shadow-card)',
+          marginBottom: 'var(--spacing-md)',
+        }}
+      >
+        <p>
+          {t('result.hollandCode')}: <span style={{ color: 'var(--primary-red)' }}>{data.hollandCode}</span>
+        </p>
       </div>
-      <div className="flex justify-center text-[#f8f8f8]">
-        <p className="pt-3">
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          color: 'var(--dark-grey)',
+          marginBottom: 'var(--spacing-lg)',
+        }}
+      >
+        <p style={{ paddingTop: 'var(--spacing-xs)' }}>
           {t('result.noIdea')}
           <Link
             href="/about"
             target="_blank"
-            className=" underline underline-offset-2 ml-2"
+            style={{
+              marginLeft: 'var(--spacing-xs)',
+              color: 'var(--primary-red)',
+              textDecoration: 'underline',
+              fontWeight: 'var(--weight-bold)',
+            }}
           >
             {t('result.readMore')}
           </Link>
         </p>
       </div>
-      <div className="pt-10 px-4 text-center">
-        <p className="text-[#a0a0a0] text-xl italic">
+
+      <div style={{ paddingTop: 'var(--spacing-md)', textAlign: 'center' }}>
+        <p
+          style={{
+            color: 'var(--dark-grey)',
+            fontSize: 'var(--body-size)',
+            fontStyle: 'italic',
+            marginBottom: 'var(--spacing-xl)',
+          }}
+        >
           {t('result.description')}
         </p>
 
-        <div className="bg-[#ffffff2e] my-10 p-4 rounded-lg">
-          <h2 className="text-[#f8f8f8] font-bold text-3xl pt-4 text-center">
+        <div
+          style={{
+            backgroundColor: 'var(--card-bg)',
+            marginBottom: 'var(--spacing-lg)',
+            padding: 'var(--spacing-lg)',
+            borderRadius: 'var(--radius-lg)',
+            boxShadow: 'var(--shadow-card)',
+          }}
+        >
+          <h2
+            style={{
+              color: 'var(--primary-black)',
+              paddingTop: 'var(--spacing-md)',
+              textAlign: 'center',
+              marginBottom: 'var(--spacing-md)',
+            }}
+          >
             {t('result.exact')}
           </h2>
-          <div className="py-6 text-[#cecece] text-xl text-center">
+          <div
+            style={{
+              paddingTop: 'var(--spacing-md)',
+              paddingBottom: 'var(--spacing-md)',
+              color: 'var(--dark-grey)',
+              fontSize: 'var(--body-size)',
+            }}
+          >
             {data.exactProfessions.length > 0 ? (
               data.exactProfessions.map((prof: IProfession) => (
-                <p className="pb-2" key={prof.id}>
+                <p
+                  style={{ paddingBottom: 'var(--spacing-xs)' }}
+                  key={prof.id}
+                >
                   {getLocalizedProfessionTitle(prof)} ({prof.hollandCode})
                 </p>
               ))
@@ -102,22 +207,73 @@ export default function Result({
             )}
           </div>
         </div>
-        <div className="bg-[#ffffff2e] mb-10 p-4 rounded-lg">
-          <h2 className="text-[#f8f8f8] font-bold text-3xl pt-4 text-center">
+
+        <div
+          style={{
+            backgroundColor: 'var(--card-bg)',
+            marginBottom: 'var(--spacing-lg)',
+            padding: 'var(--spacing-lg)',
+            borderRadius: 'var(--radius-lg)',
+            boxShadow: 'var(--shadow-card)',
+          }}
+        >
+          <h2
+            style={{
+              color: 'var(--primary-black)',
+              paddingTop: 'var(--spacing-md)',
+              textAlign: 'center',
+              marginBottom: 'var(--spacing-md)',
+            }}
+          >
             {t('result.similar')}
           </h2>
-          <div className="py-6 text-[#cecece] text-xl text-center">
+          <div
+            style={{
+              paddingTop: 'var(--spacing-md)',
+              paddingBottom: 'var(--spacing-md)',
+              color: 'var(--dark-grey)',
+              fontSize: 'var(--body-size)',
+            }}
+          >
             {data.similarProfessions.map((prof: IProfession) => {
               return (
-                <p className="pb-2" key={prof.id}>
+                <p
+                  style={{ paddingBottom: 'var(--spacing-xs)' }}
+                  key={prof.id}
+                >
                   {getLocalizedProfessionTitle(prof)} ({prof.hollandCode})
                 </p>
               );
             })}
           </div>
         </div>
+
         <Link href="/tests">
-          <button className="fixed left-4 bottom-4 bg-[#f08cc0] hover:bg-[#f08cc0e0] transition-colors text-white px-6 py-3 rounded-lg shadow-lg">
+          <button
+            style={{
+              position: 'fixed',
+              left: 'var(--spacing-md)',
+              bottom: 'var(--spacing-md)',
+              backgroundColor: 'var(--primary-red)',
+              color: 'var(--card-bg)',
+              padding: 'var(--spacing-sm) var(--spacing-md)',
+              borderRadius: 'var(--radius-md)',
+              border: 'none',
+              boxShadow: 'var(--shadow-card)',
+              cursor: 'pointer',
+              fontWeight: 'var(--weight-bold)',
+              fontSize: 'var(--button-size)',
+              transition: 'background-color 0.2s ease, transform 0.1s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#c71e48';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--primary-red)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
             {t('result.back')}
           </button>
         </Link>

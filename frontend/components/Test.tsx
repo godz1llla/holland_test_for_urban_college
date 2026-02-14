@@ -10,9 +10,9 @@ export default function Test(props: ITestProps) {
   const { language, t } = useLanguage();
 
   useEffect(() => {
-    const hue = Math.floor(Math.random() * 360); // Random hue
-    const saturation = Math.floor(Math.random() * 51) + 50; // 50-100% saturation
-    const lightness = Math.floor(Math.random() * 26) + 70; // 70-95% lightness
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = Math.floor(Math.random() * 51) + 50;
+    const lightness = Math.floor(Math.random() * 26) + 70;
     const randomColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
     setBgColor(randomColor);
   }, []);
@@ -41,25 +41,78 @@ export default function Test(props: ITestProps) {
     <>
       <Link
         href={`/tests/${test.id}`}
-        className="flex flex-row m-5"
         onClick={handleClick}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          margin: 'var(--spacing-md)',
+          textDecoration: 'none',
+          transition: 'transform 0.2s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+        }}
       >
         <div
-          className={`box w-48 rounded-l-lg flex-shrink-0 drop-shadow-md`}
-          style={{ backgroundColor: bgColor }}
+          style={{
+            width: '120px',
+            minHeight: '160px',
+            borderRadius: 'var(--radius-lg) 0 0 var(--radius-lg)',
+            backgroundColor: bgColor,
+          }}
         ></div>
-        <div className="">
-          <div className="flex flex-col bg-neutral-100 hover:bg-white border-t border-r border-b border-gray-200 rounded-r-lg shadow md:max-w-xl p-4">
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-[#ce43a7]">
-              {getLocalizedTitle()}
-            </h2>
-            <p className="mb-3 font-normal text-[#666666]">
-              {getLocalizedDescription()}
-            </p>
-            <p className="mb-3 font-normal text-[#666666]">
-              {t('tests.version')}: {test.version}
-            </p>
-          </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'var(--card-bg)',
+            border: '1px solid var(--light-grey)',
+            borderLeft: 'none',
+            borderRadius: '0 var(--radius-lg) var(--radius-lg) 0',
+            boxShadow: 'var(--shadow-card)',
+            padding: 'var(--spacing-md)',
+            maxWidth: '600px',
+            transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--bg-light)';
+            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.08)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--card-bg)';
+            e.currentTarget.style.boxShadow = 'var(--shadow-card)';
+          }}
+        >
+          <h3
+            style={{
+              marginBottom: 'var(--spacing-sm)',
+              color: 'var(--primary-black)',
+            }}
+          >
+            {getLocalizedTitle()}
+          </h3>
+          <p
+            style={{
+              marginBottom: 'var(--spacing-xs)',
+              fontSize: 'var(--body-size)',
+              color: 'var(--dark-grey)',
+              lineHeight: 'var(--lh-body)',
+            }}
+          >
+            {getLocalizedDescription()}
+          </p>
+          <p
+            style={{
+              fontSize: 'var(--caption-size)',
+              color: 'var(--grey)',
+              lineHeight: 'var(--lh-caption)',
+            }}
+          >
+            {t('tests.version')}: {test.version}
+          </p>
         </div>
       </Link>
     </>

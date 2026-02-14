@@ -17,7 +17,14 @@ export default function Tests() {
 
   return (
     <>
-      <h1 className="text-center font-bold text-[#f8f8f8] text-6xl mt-6 mb-20">
+      <h1
+        style={{
+          textAlign: 'center',
+          marginTop: 'var(--spacing-lg)',
+          marginBottom: 'var(--spacing-xl)',
+          color: 'var(--primary-black)',
+        }}
+      >
         {t('tests.available')}
       </h1>
       <TestList tests={tests._embedded.hollandCodeTests} />

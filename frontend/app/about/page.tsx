@@ -7,77 +7,168 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <div className="max-w-2xl mx-auto pb-20">
-      <h1 className="text-center font-bold text-[#f8f8f8] text-5xl pt-6 mb-20">
+    <div
+      style={{
+        maxWidth: '800px',
+        margin: '0 auto',
+        paddingBottom: 'var(--spacing-xl)',
+        paddingLeft: 'var(--spacing-md)',
+        paddingRight: 'var(--spacing-md)',
+      }}
+    >
+      <h1
+        style={{
+          textAlign: 'center',
+          paddingTop: 'var(--spacing-lg)',
+          marginBottom: 'var(--spacing-xl)',
+          color: 'var(--primary-black)',
+        }}
+      >
         {t('about.title')}
       </h1>
-      <div className="flex flex-col justify-center bg-[#ffffff2e] text-[#f8f8f8] text-3xl p-10 rounded-lg">
-        <h2 className="text-center mb-10">{t('about.riasec')}</h2>
-        <p className="text-center flex flex-wrap justify-center gap-4">
-          <span><span className="font-bold">R</span>{t('about.categories.r').substring(1)}</span>
-          <span><span className="font-bold">I</span>{t('about.categories.i').substring(1)}</span>
-          <span><span className="font-bold">A</span>{t('about.categories.a').substring(1)}</span>
-          <span><span className="font-bold">S</span>{t('about.categories.s').substring(1)}</span>
-          <span><span className="font-bold">E</span>{t('about.categories.e').substring(1)}</span>
-          <span><span className="font-bold">C</span>{t('about.categories.c').substring(1)}</span>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          backgroundColor: 'var(--card-bg)',
+          color: 'var(--primary-black)',
+          fontSize: 'var(--h2-size)',
+          padding: 'var(--spacing-xl)',
+          borderRadius: 'var(--radius-lg)',
+          boxShadow: 'var(--shadow-card)',
+          marginBottom: 'var(--spacing-lg)',
+        }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
+          {t('about.riasec')}
+        </h2>
+        <p
+          style={{
+            textAlign: 'center',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 'var(--spacing-sm)',
+            fontSize: 'var(--h3-size)',
+            fontWeight: 'var(--weight-bold)',
+          }}
+        >
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>R</span>
+            {t('about.categories.r').substring(1)}
+          </span>
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>I</span>
+            {t('about.categories.i').substring(1)}
+          </span>
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>A</span>
+            {t('about.categories.a').substring(1)}
+          </span>
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>S</span>
+            {t('about.categories.s').substring(1)}
+          </span>
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>E</span>
+            {t('about.categories.e').substring(1)}
+          </span>
+          <span>
+            <span style={{ color: 'var(--primary-red)' }}>C</span>
+            {t('about.categories.c').substring(1)}
+          </span>
         </p>
       </div>
-      <div className="pt-8 px-4">
-        <p className="text-[#a0a0a0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.description') }}></p>
-        <p className="text-[#a0a0a0] mt-4">
-          <Link href="/tests" className="text-[#f08cc0] hover:underline">
+
+      <div style={{ paddingTop: 'var(--spacing-md)', paddingLeft: 'var(--spacing-md)', paddingRight: 'var(--spacing-md)' }}>
+        <p
+          style={{
+            color: 'var(--dark-grey)',
+            lineHeight: 'var(--lh-body)',
+          }}
+          dangerouslySetInnerHTML={{ __html: t('about.description') }}
+        ></p>
+        <p style={{ color: 'var(--dark-grey)', marginTop: 'var(--spacing-md)' }}>
+          <Link
+            href="/tests"
+            style={{
+              color: 'var(--primary-red)',
+              textDecoration: 'underline',
+              fontWeight: 'var(--weight-bold)',
+            }}
+          >
             {t('about.selfAssessment')}
           </Link>
         </p>
 
-        <h2 className="text-[#f8f8f8] font-bold text-4xl pt-12 text-center">
+        <h2
+          style={{
+            paddingTop: 'var(--spacing-xl)',
+            textAlign: 'center',
+            marginBottom: 'var(--spacing-lg)',
+          }}
+        >
           {t('about.personalities')}
         </h2>
 
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.realistic.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.realistic.desc')}
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.investigative.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.investigative.desc')}
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.artistic.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.artistic.desc')}
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.social.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.social.desc')}
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.enterprising.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.enterprising.desc')}
-          </p>
-        </div>
-
-        <div className="flex flex-col justify-center pt-10">
-          <h3 className="text-2xl text-[#f8f8f8] font-semibold">{t('about.types.conventional.title')}</h3>
-          <p className="pt-2 text-[#a0a0a0]">
-            {t('about.types.conventional.desc')}
-          </p>
-        </div>
+        {['realistic', 'investigative', 'artistic', 'social', 'enterprising', 'conventional'].map((type) => (
+          <div
+            key={type}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              paddingTop: 'var(--spacing-lg)',
+              backgroundColor: 'var(--card-bg)',
+              padding: 'var(--spacing-md)',
+              borderRadius: 'var(--radius-lg)',
+              marginBottom: 'var(--spacing-md)',
+              boxShadow: 'var(--shadow-card)',
+            }}
+          >
+            <h3 style={{ color: 'var(--primary-black)' }}>
+              {t(`about.types.${type}.title`)}
+            </h3>
+            <p
+              style={{
+                paddingTop: 'var(--spacing-xs)',
+                color: 'var(--dark-grey)',
+                lineHeight: 'var(--lh-body)',
+              }}
+            >
+              {t(`about.types.${type}.desc`)}
+            </p>
+          </div>
+        ))}
 
         <Link href="/tests">
-          <button className="fixed left-4 bottom-4 bg-[#f08cc0] hover:bg-[#f08cc0e0] transition-colors text-white px-6 py-3 rounded-lg shadow-lg">
+          <button
+            style={{
+              position: 'fixed',
+              left: 'var(--spacing-md)',
+              bottom: 'var(--spacing-md)',
+              backgroundColor: 'var(--primary-red)',
+              color: 'var(--card-bg)',
+              padding: 'var(--spacing-sm) var(--spacing-md)',
+              borderRadius: 'var(--radius-md)',
+              border: 'none',
+              boxShadow: 'var(--shadow-card)',
+              cursor: 'pointer',
+              fontWeight: 'var(--weight-bold)',
+              fontSize: 'var(--button-size)',
+              transition: 'background-color 0.2s ease, transform 0.1s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#c71e48';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--primary-red)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
             {t('result.back')}
           </button>
         </Link>

@@ -48,39 +48,108 @@ export default function Quiz(props: IQuizProps) {
   return (
     <>
       {!showResult && (
-        <div className="max-w-2xl mx-auto ">
-          <h1 className="text-center font-bold text-[#f8f8f8] text-5xl pt-6 mb-24">
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: 'var(--spacing-xl)',
+          }}
+        >
+          <h1
+            style={{
+              textAlign: 'center',
+              paddingTop: 'var(--spacing-lg)',
+              marginBottom: 'var(--spacing-xl)',
+              color: 'var(--primary-black)',
+            }}
+          >
             {t('quiz.title')}
           </h1>
-          <div className="flex flex-col border-solid border-2 rounded-md items-center">
-            <h4 className="mt-10 text-xl text-white/70">
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              backgroundColor: 'var(--card-bg)',
+              border: '1px solid var(--light-grey)',
+              borderRadius: 'var(--radius-lg)',
+              boxShadow: 'var(--shadow-card)',
+              padding: 'var(--spacing-xl)',
+            }}
+          >
+            <h4
+              style={{
+                marginTop: 'var(--spacing-md)',
+                fontSize: 'var(--h3-size)',
+                fontWeight: 'var(--weight-bold)',
+                color: 'var(--dark-grey)',
+              }}
+            >
               {t('quiz.questionCount')
                 .replace('{current}', (currentQuestionIndex + 1).toString())
                 .replace('{total}', (props.questions?.length || 0).toString())}
             </h4>
-            <div className="mt-8 text-2xl text-white px-8 text-center">
+            <div
+              style={{
+                marginTop: 'var(--spacing-lg)',
+                fontSize: 'var(--h2-size)',
+                fontWeight: 'var(--weight-bold)',
+                color: 'var(--primary-black)',
+                paddingLeft: 'var(--spacing-lg)',
+                paddingRight: 'var(--spacing-lg)',
+                textAlign: 'center',
+              }}
+            >
               {getLocalizedQuestionText()}
             </div>
-            <div className="flex py-6 m-10 space-x-8 cursor-pointer">
-              <div className="flex items-center">
+            <div
+              style={{
+                display: 'flex',
+                padding: 'var(--spacing-md)',
+                margin: 'var(--spacing-xl)',
+                gap: 'var(--spacing-lg)',
+                cursor: 'pointer',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
                 <input
                   type="radio"
-                  className="w-6 h-6"
+                  style={{ width: '24px', height: '24px' }}
                   name="answer"
                   key={`yes-${currentQuestionIndex}`}
                   onClick={() => handleAnswerClick(true)}
                 />
-                <label className="text-white ml-2">{t('quiz.yes')}</label>
+                <label
+                  style={{
+                    marginLeft: 'var(--spacing-xs)',
+                    fontSize: 'var(--body-size)',
+                    fontWeight: 'var(--weight-bold)',
+                    color: 'var(--primary-black)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {t('quiz.yes')}
+                </label>
               </div>
-              <div className="flex items-center">
+              <div style={{ display: 'flex', alignItems: 'center' }}>
                 <input
                   type="radio"
-                  className="w-6 h-6"
+                  style={{ width: '24px', height: '24px' }}
                   name="answer"
                   key={`no-${currentQuestionIndex}`}
                   onClick={() => handleAnswerClick(false)}
                 />
-                <label className="text-white ml-2">{t('quiz.no')}</label>
+                <label
+                  style={{
+                    marginLeft: 'var(--spacing-xs)',
+                    fontSize: 'var(--body-size)',
+                    fontWeight: 'var(--weight-bold)',
+                    color: 'var(--primary-black)',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {t('quiz.no')}
+                </label>
               </div>
             </div>
           </div>

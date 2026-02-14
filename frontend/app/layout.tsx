@@ -1,9 +1,13 @@
 import '../styles/globals.css';
 
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import Head from 'next/head';
 
-const inter = Inter({ subsets: ['latin'] });
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['300', '700', '900'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'RIASEC Test',
@@ -24,7 +28,7 @@ export default function RootLayout({
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </Head>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <LanguageProvider>
           <LanguageSwitcher />
           {children}

@@ -13,18 +13,51 @@ const LanguageSwitcher: React.FC = () => {
     ] as const;
 
     return (
-        <div className="fixed top-4 right-4 z-50 flex space-x-2 bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 shadow-xl">
+        <div
+            style={{
+                position: 'fixed',
+                top: 'var(--spacing-md)',
+                right: 'var(--spacing-md)',
+                zIndex: 1000,
+                display: 'flex',
+                gap: 'var(--spacing-xs)',
+                backgroundColor: 'var(--card-bg)',
+                padding: 'var(--spacing-xs)',
+                borderRadius: 'var(--radius-lg)',
+                border: '1px solid var(--light-grey)',
+                boxShadow: 'var(--shadow-card)',
+            }}
+        >
             {languages.map((lang) => (
                 <button
                     key={lang.code}
                     onClick={() => setLanguage(lang.code)}
-                    className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:scale-110 ${language === lang.code
-                            ? 'bg-white/30 text-white shadow-inner'
-                            : 'text-white/60 hover:text-white hover:bg-white/10'
-                        }`}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: 'var(--radius-md)',
+                        border: language === lang.code ? `2px solid var(--primary-red)` : '2px solid transparent',
+                        backgroundColor: language === lang.code ? 'var(--bg-light)' : 'transparent',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        fontSize: '20px',
+                    }}
                     title={lang.label}
+                    onMouseEnter={(e) => {
+                        if (language !== lang.code) {
+                            e.currentTarget.style.backgroundColor = 'var(--bg-light)';
+                        }
+                    }}
+                    onMouseLeave={(e) => {
+                        if (language !== lang.code) {
+                            e.currentTarget.style.backgroundColor = 'transparent';
+                        }
+                    }}
                 >
-                    <span className="text-xl">{lang.flag}</span>
+                    <span>{lang.flag}</span>
                 </button>
             ))}
         </div>
