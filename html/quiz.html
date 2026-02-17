@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIASEC Quiz - Personal Data</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Language Switcher -->
+    <div id="language-switcher">
+        <button class="lang-btn" data-lang="en" onclick="i18n.setLanguage('en')">🇺🇸</button>
+        <button class="lang-btn" data-lang="ru" onclick="i18n.setLanguage('ru')">🇷🇺</button>
+        <button class="lang-btn" data-lang="kk" onclick="i18n.setLanguage('kk')">🇰🇿</button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container" style="padding: 100px 0;">
+
+        <!-- Step 1: Personal Data Form -->
+        <div id="step-form" class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2 data-t="form.title" style="text-align: center; margin-bottom: 32px;">Please fill in your personal
+                details</h2>
+            <form id="personal-data-form">
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 700;" data-t="form.firstName">First
+                        Name</label>
+                    <input type="text" id="firstName" class="form-input" required data-t="form.placeholders.firstName"
+                        placeholder="Jane">
+                </div>
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 700;" data-t="form.lastName">Last
+                        Name</label>
+                    <input type="text" id="lastName" class="form-input" required data-t="form.placeholders.lastName"
+                        placeholder="Doe">
+                </div>
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 700;"
+                        data-t="form.email">Email</label>
+                    <input type="email" id="email" class="form-input" required data-t="form.placeholders.email"
+                        placeholder="mail@mail.de">
+                </div>
+                <div class="form-group">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 700;"
+                        data-t="form.gender">Gender</label>
+                    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="gender" value="male" required>
+                            <span data-t="form.genders.male">Male</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="gender" value="female">
+                            <span data-t="form.genders.female">Female</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="gender" value="nonBinary">
+                            <span data-t="form.genders.nonBinary">Non-Binary</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                            <input type="radio" name="gender" value="other">
+                            <span data-t="form.genders.other">Other</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 24px;"
+                    data-t="form.submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Step 2: Quiz Questions -->
+        <div id="step-quiz" class="card" style="max-width: 800px; margin: 0 auto; display: none;">
+            <h2 id="quiz-title" data-t="quiz.title" style="text-align: center; margin-bottom: 24px;">Holland Code Test
+            </h2>
+            <div id="quiz-progress"
+                style="text-align: center; color: var(--dark-grey); margin-bottom: 32px; font-weight: 700;">
+                Question 1 of 42
+            </div>
+
+            <div id="question-container"
+                style="text-align: center; min-height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; font-size: 1.5rem; font-weight: 700;">
+                <!-- Question text here -->
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 24px;">
+                <button class="btn-primary" style="min-width: 150px; padding: 16px;" onclick="quiz.answer(true)"
+                    data-t="quiz.yes">Yes</button>
+                <button class="btn-outline" style="min-width: 150px; padding: 16px;" onclick="quiz.answer(false)"
+                    data-t="quiz.no">No</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Result -->
+        <div id="step-result" style="display: none;">
+            <h1 style="text-align: center; margin-bottom: 40px;" data-t="result.title">Your Result</h1>
+
+            <div class="card" style="text-align: center; margin-bottom: 32px;">
+                <p style="font-size: 1.25rem; font-weight: 700;">
+                    <span data-t="result.hollandCode">Your Holland-Code</span>:
+                    <span id="result-code"
+                        style="color: var(--primary-red); font-size: 2rem; font-weight: 900;">SEC</span>
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom: 32px;">
+                <h3 style="margin-bottom: 16px;" data-t="result.exact">Exact Professions</h3>
+                <div id="exact-professions"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+                    <!-- Exact professions here -->
+                </div>
+                <p id="no-exact-msg" style="color: var(--dark-grey); display: none;" data-t="result.noExact">No exact
+                    match</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 40px;">
+                <h3 style="margin-bottom: 16px;" data-t="result.similar">Similar Professions</h3>
+                <div id="similar-professions"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+                    <!-- Similar professions here -->
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="btn-outline" style="text-decoration: none;" data-t="result.back">Back to
+                    Home</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="data/dicts.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/professions.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+
+</html>

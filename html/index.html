@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIASEC Personality Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div id="language-switcher">
+        <button class="lang-btn" data-lang="en" onclick="i18n.setLanguage('en')">🇺🇸</button>
+        <button class="lang-btn" data-lang="ru" onclick="i18n.setLanguage('ru')">🇷🇺</button>
+        <button class="lang-btn" data-lang="kk" onclick="i18n.setLanguage('kk')">🇰🇿</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; background: var(--bg-light); padding: 60px 0;">
+        <div class="container">
+            <div style="max-width: 800px; position: relative; z-index: 10;">
+                <span style="display: inline-block; padding: 8px 16px; background: rgba(225, 37, 83, 0.1); color: var(--primary-red); font-weight: 600; font-size: 14px; border-radius: 9999px; margin-bottom: 24px;" data-t="landing.hero.badge">Free Personality Test</span>
+                
+                <h1 style="margin-bottom: 24px; font-size: 3.5rem; line-height: 1.1;">
+                    <span data-t="landing.hero.title">Discover Your Professional Path with</span>
+                    <span style="color: var(--primary-red);" data-t="landing.hero.titleHighlight">RIASEC Test</span>
+                </h1>
+                
+                <p style="font-size: 1.25rem; color: var(--dark-grey); margin-bottom: 40px; line-height: 1.6;" data-t="landing.hero.subtitle">
+                    Scientific personality assessment based on Holland's theory — get personalized career recommendations in 5-7 minutes
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="width: 24px; height: 24px; background: var(--accent-green); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center;">✓</span>
+                        <span data-t="landing.hero.advantages.free">Completely free and scientifically validated</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="width: 24px; height: 24px; background: var(--accent-green); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center;">✓</span>
+                        <span data-t="landing.hero.advantages.fast">Results in 5-7 minutes</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="width: 24px; height: 24px; background: var(--accent-green); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center;">✓</span>
+                        <span data-t="landing.hero.advantages.recommendations">Personalized profession recommendations</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 16px;">
+                    <a href="quiz.html" class="btn-primary" style="text-decoration: none;" data-t="landing.hero.cta">Take the Test</a>
+                    <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" data-t="landing.hero.learnMore">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative blobs -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: var(--primary-red); opacity: 0.05; filter: blur(100px); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: var(--accent-green); opacity: 0.05; filter: blur(80px); border-radius: 50%;"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="padding: 80px 0; background: var(--card-bg);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 data-t="landing.about.title">What is RIASEC?</h2>
+                <p style="max-width: 700px; margin: 20px auto; color: var(--dark-grey); font-size: 1.125rem;" data-t="landing.about.description">
+                    RIASEC (also known as Holland Codes) is a scientifically validated career assessment tool developed by psychologist Dr. John Holland. It categorizes people and work environments into six personality types.
+                </p>
+            </div>
+
+            <div id="types-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <!-- Types will be rendered here or kept static -->
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--primary-red); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">R</div>
+                    <h4 data-t="about.types.realistic.title">Realistic (Doers)</h4>
+                    <p class="caption" data-t="about.types.realistic.desc">People who have athletic ability, prefer to work with objects, machines, tools, plants or animals, or to be outdoors.</p>
+                </div>
+                <!-- ... other types ... -->
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-green); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">I</div>
+                    <h4 data-t="about.types.investigative.title">Investigative (Thinkers)</h4>
+                    <p class="caption" data-t="about.types.investigative.desc">People who like to observe, learn, investigate, analyze, evaluate, or solve problems.</p>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-violet); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">A</div>
+                    <h4 data-t="about.types.artistic.title">Artistic (Creators)</h4>
+                    <p class="caption" data-t="about.types.artistic.desc">People who have artistic, innovating, or intuitional abilities and like to work in unstructured situations using their imagination and creativity.</p>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-yellow); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">S</div>
+                    <h4 data-t="about.types.social.title">Social (Helpers)</h4>
+                    <p class="caption" data-t="about.types.social.desc">People who like to work with people to enlighten, inform, help, train, or cure them, or are skilled with words.</p>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--primary-red); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">E</div>
+                    <h4 data-t="about.types.enterprising.title">Enterprising (Persuaders)</h4>
+                    <p class="caption" data-t="about.types.enterprising.desc">People who like to work with people, influencing, persuading, leading or managing for organizational goals or economic gain.</p>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-green); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 24px;">C</div>
+                    <h4 data-t="about.types.conventional.title">Conventional (Organizers)</h4>
+                    <p class="caption" data-t="about.types.conventional.desc">People who like to work with data, have clerical or numerical ability, carry out tasks in detail, or follow through on others' instructions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px 0; background: var(--primary-black); color: white; text-align: center;">
+        <div class="container">
+            <p>&copy; 2026 RIASEC Test Platform. Developed by Gubaidulla Orynbekov.</p>
+        </div>
+    </footer>
+
+    <script src="data/dicts.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>

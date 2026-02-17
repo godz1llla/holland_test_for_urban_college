@@ -1,0 +1,180 @@
+/* URBAN COLLEGE Design System - Vanilla CSS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap');
+
+:root {
+  --primary-red: #E12553;
+  --primary-black: #292929;
+  --dark-grey: #938E8D;
+  --grey: #B1ACA9;
+  --light-grey: #D7D9D3;
+  --accent-green: #27A38A;
+  --accent-yellow: #FFB030;
+  --accent-violet: #50318F;
+  --bg-light: #F9F9FB;
+  --card-bg: #FFFFFF;
+
+  --font-family: 'Montserrat', sans-serif;
+  --h1-size: 2.25rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.25rem;
+  --body-size: 1rem;
+  --caption-size: 0.875rem;
+  --button-size: 1rem;
+
+  --weight-light: 300;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--body-size);
+  font-weight: var(--weight-light);
+  line-height: 1.6;
+  color: var(--primary-black);
+  background: var(--bg-light);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  color: var(--primary-black);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--h1-size); font-weight: var(--weight-black); }
+h2 { font-size: var(--h2-size); font-weight: var(--weight-black); }
+h3 { font-size: var(--h3-size); font-weight: var(--weight-bold); }
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  font-weight: var(--weight-bold);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--primary-red);
+  color: white;
+  padding: 12px 24px;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-red);
+  border: 1px solid var(--primary-red);
+  padding: 12px 24px;
+}
+
+.btn-outline:hover {
+  background: rgba(225, 37, 83, 0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--light-grey);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--light-grey);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+}
+
+.form-input:focus {
+  outline: 2px solid var(--primary-red);
+  border-color: transparent;
+}
+
+/* Radio buttons matching the Next.js version */
+input[type='radio'] {
+  appearance: none;
+  cursor: pointer;
+}
+
+input[type='radio']:after {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  content: '';
+  display: inline-block;
+  border: 2px solid var(--light-grey);
+  transition: all 0.2s ease;
+}
+
+input[type='radio']:checked:after {
+  background-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+/* Language Switcher */
+#language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  background: var(--card-bg);
+  padding: 8px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  z-index: 1000;
+}
+
+.lang-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justifyContent: center;
+  font-size: 20px;
+  background: transparent;
+}
+
+.lang-btn.active {
+  border: 2px solid var(--primary-red);
+  background: var(--bg-light);
+}

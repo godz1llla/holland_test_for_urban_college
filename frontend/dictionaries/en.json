@@ -3,6 +3,73 @@
         "available": "Available Tests",
         "version": "Version"
     },
+    "nav": {
+        "tests": "Tests",
+        "about": "About",
+        "takeTest": "Take Test"
+    },
+    "landing": {
+        "hero": {
+            "badge": "Free Personality Test",
+            "title": "Discover Your Professional Path with",
+            "titleHighlight": "RIASEC Test",
+            "subtitle": "Scientific personality assessment based on Holland's theory — get personalized career recommendations in 5-7 minutes",
+            "advantages": {
+                "free": "Completely free and scientifically validated",
+                "fast": "Results in 5-7 minutes",
+                "recommendations": "Personalized profession recommendations"
+            },
+            "cta": "Take the Test",
+            "learnMore": "Learn More"
+        },
+        "about": {
+            "title": "What is RIASEC?",
+            "description": "RIASEC (also known as Holland Codes) is a scientifically validated career assessment tool developed by psychologist Dr. John Holland. It categorizes people and work environments into six personality types.",
+            "types": "The 6 Personality Types",
+            "typesSubtitle": "Each person is a unique combination of these types"
+        },
+        "howItWorks": {
+            "title": "How It Works",
+            "subtitle": "Get your results in just 3 simple steps",
+            "step1": {
+                "title": "Fill Personal Data",
+                "description": "Provide your basic information to begin"
+            },
+            "step2": {
+                "title": "Answer Questions",
+                "description": "Complete a short questionnaire about your preferences"
+            },
+            "step3": {
+                "title": "Get Results",
+                "description": "Receive your Holland Code and matching professions"
+            }
+        },
+        "benefits": {
+            "title": "Why Take This Test?",
+            "subtitle": "Make informed career decisions based on your personality",
+            "scientific": {
+                "title": "Scientific Foundation",
+                "description": "Based on Dr. Holland's validated RIASEC theory used worldwide"
+            },
+            "fast": {
+                "title": "Quick & Easy",
+                "description": "Get comprehensive results in just 5-7 minutes"
+            },
+            "multilingual": {
+                "title": "Multi-language Support",
+                "description": "Available in English, Russian, and Kazakh"
+            },
+            "free": {
+                "title": "Completely Free",
+                "description": "No hidden costs, no registration required"
+            }
+        },
+        "cta": {
+            "title": "Ready to Discover Your Path?",
+            "subtitle": "Start your RIASEC personality assessment now and find careers that match your unique personality type",
+            "button": "Start Test Now"
+        }
+    },
     "form": {
         "title": "Please fill in your personal details",
         "firstName": "First Name",
